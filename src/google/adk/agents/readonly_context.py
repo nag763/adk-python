@@ -34,6 +34,11 @@ class ReadonlyContext:
     self._invocation_context = invocation_context
 
   @property
+  def user_id(self) -> str:
+    """The user id that start this invocation. READONLY field."""
+    return self._invocation_context.user_id
+
+  @property
   def user_content(self) -> Optional[types.Content]:
     """The user content that started this invocation. READONLY field."""
     return self._invocation_context.user_content
@@ -47,7 +52,7 @@ class ReadonlyContext:
   def agent_name(self) -> str:
     """The name of the agent that is currently running."""
     return self._invocation_context.agent.name
-
+z
   @property
   def state(self) -> MappingProxyType[str, Any]:
     """The state of the current session. READONLY field."""
